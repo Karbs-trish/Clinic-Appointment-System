@@ -1,0 +1,215 @@
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Patient: Alex (ID: 3).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added Alex to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] FAILED: Patient 2 already has a non-cancelled appointment at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Patient: Alex (ID: 3).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added Alex to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] FAILED: Patient 2 already has a non-cancelled appointment at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Patient: Alex (ID: 3).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added Alex to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] FAILED: Patient 2 already has a non-cancelled appointment at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Patient: Alex (ID: 3).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added Alex to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] FAILED: Patient 2 already has a non-cancelled appointment at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
+[Hour 0] Registered Patient: Trish (ID: 1).
+[Hour 0] Registered Patient: John (ID: 2).
+[Hour 0] Registered Patient: Alex (ID: 3).
+[Hour 0] Registered Doctor - Dr Smith (ID: 10).
+[Hour 0] Registered Nurse - Nurse Mary (ID: 11).
+[Hour 0] Registered Pharmacist - Peter (ID: 12).
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 20.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked John with Nurse at hour 25.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Confirmed appointment #1.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #2.
+[Hour 0] [log] closed
+[Hour 19] [log] opened
+[Hour 19] FAILED: Cannot cancel appointment #1: less than two hours before start.
+[Hour 19] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Booked Trish with Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added John to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Added Alex to the waiting list for Doctor at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] FAILED: Patient 2 already has a non-cancelled appointment at hour 40.
+[Hour 0] [log] closed
+[Hour 0] [log] opened
+[Hour 0] Cancelled appointment #3.
+[Hour 0] Promoted appointment #4 from the waiting list.
+[Hour 0] [log] closed
