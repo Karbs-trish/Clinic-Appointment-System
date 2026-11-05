@@ -1,0 +1,109 @@
+# Design Decision Log
+
+## D1. Location of the two-hour cancellation rule
+
+The rule lives in `Appointment.cancel(now, reason)` in
+[models/appointment.py](./models/appointment.py). The appointment owns its
+status and validates whether the requested transition from its current status
+to `CANCELLED` is allowed. `Clinic.cancel()` in
+[services/clinic.py](./services/clinic.py) finds the appointment, supplies the
+current time, and coordinates logging and waiting-list promotion.
+
+Other options considered:
+
+- **Clinic:** This would centralize scheduling policies, but would put
+  appointment state-transition rules in the coordinator and make it easier for
+  another caller to bypass them.
+- **Staff:** The rule is not specific to a staff role, and putting it there
+  would couple cancellation to the provider.
+- **Separate policy object:** This is useful if policies vary by clinic,
+  appointment type, or configuration. For one fixed rule, it adds indirection
+  without a current need.
+
+## D2. Why the clock is testable
+
+The clinic receives a `Clock` object and asks it for the current hour rather
+than reading system time itself. Tests use `ManualClock` to set the hour
+directly. This makes boundary cases—such as cancelling one hour before an
+appointment—repeatable and fast, without waiting for real time to pass. It also
+avoids tests depending on the machine's current time or timezone.
+
+With direct system-time calls, tests could not reliably choose the exact
+current hour. They would be slower and could become flaky near time boundaries.
+
+See [utils/clock.py](./utils/clock.py).
+
+## D3. Adding a pharmacist
+
+The pharmacist was added as a `Staff` subclass with its own role and fee in
+[models/pharmacist.py](./models/pharmacist.py). The demo registers a pharmacist
+in [main.py](./main.py), and
+[test_clinic.py](./test_clinic.py) checks the pharmacist fee. The shared fee
+display in `Clinic.print_fees()` did not need a pharmacist-specific branch:
+it calls `fee()` polymorphically for every registered staff member.
+
+The change therefore required application wiring and a test, but did not
+change booking, cancellation, waiting-list, or logging behavior.
+
+## D4. MedicalLecturer fee and shared Person initialization
+
+`MedicalLecturer.fee()` should return the doctor fee, `$40.00`, because
+`MedicalLecturer` inherits from `Doctor`. It inherits that implementation
+rather than defining a second fee.
+
+Python's method resolution order (MRO) determines the order in which parent
+classes are initialized. With cooperative multiple inheritance using
+`super()`, the shared `Person` initializer is reached once through the MRO
+chain. In this implementation, `MedicalLecturer.__init__()` calls `super()`;
+`Doctor` does not define its own initializer, so the chain continues through
+`Staff.__init__()` and `Person.__init__()`, which pass control onward to
+`Lecturer.__init__()`. Without this cooperative pattern, explicitly
+initializing both parent branches could initialize `Person` twice, overwrite
+shared state, or cause incompatible initializer calls. Python's MRO determines
+the order, but does not by itself prevent duplicate initialization.
+
+See [models/medical_lecturer.py](./models/medical_lecturer.py).
+
+## D5. Failures while writing or closing the log
+
+The current logger does not silently ignore file errors. A failure opening,
+writing, or closing the log propagates as an exception. Python's `with open(...)`
+closes the file on the normal path and when writing raises; an error during
+close also propagates.
+
+There is an important limitation: clinic operations can update appointment
+state before writing their success log. If that log write or close fails, the
+caller can receive an exception even though the state change already happened.
+Also, a failure writing the final `[log] closed` line in the logger's
+`finally` block can replace an exception that was already being handled.
+This project does not currently provide transactional rollback or a separate
+fallback logging destination. A production system should preserve the original
+operation error, report the logging failure separately, and use durable
+transactional storage if state and audit records must succeed or fail together.
+
+See [services/logger.py](./services/logger.py).
+
+## D6. Scheduling and pricing twist
+
+1. **Waiting-list ownership:** Each `Staff` instance owns its FIFO waiting list.
+   The queue represents demand for that particular staff member's time; the
+   clinic coordinates booking and promotion, while patients do not own queues.
+   The current implementation stores each waiting request as an `Appointment`
+   object in `WAITLISTED` status, with an appointment ID; promotion changes its
+   status to `PENDING`. It does not use a separate `WaitingListEntry` model.
+   See [models/staff.py](./models/staff.py) and
+   [models/appointment.py](./models/appointment.py).
+2. **Confirmed appointments are not bumped:** A confirmed booking is a
+   commitment to a patient. A new request must not displace it; only a
+   cancellation of a scheduled appointment frees the slot for promotion.
+   `Clinic.book()` treats any non-cancelled appointment at that staff member's
+   hour as a conflict, including a waitlisted request; promotion checks that
+   no other `PENDING` or `CONFIRMED` appointment occupies the slot.
+   See [services/clinic.py](./services/clinic.py).
+3. **Discount location:** There is no discount feature implemented in the
+   current project; its fees are fixed for the assignment's `P = 0` case. If
+   discounts were added, they should be determined by patient category (for
+   example, student, staff member, or visitor), so the rule belongs with the
+   patient/pricing policy rather than appointment state or staff role. A
+   separate pricing policy would be appropriate if those rules became more
+   complex.
