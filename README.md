@@ -6,8 +6,7 @@
 - Pray P Matombo — R2420401
 
 This project demonstrates a small appointment system with patients, staff,
-manual time, logging, and FIFO waiting lists. It also demonstrates inheritance
-and polymorphism through staff roles and the `MedicalLecturer` class.
+manual time, logging, and FIFO waiting lists. It also demonstrates inheritance, encapsulation and polymorphism through staff roles and the `MedicalLecturer` class.
 
 ## Run
 
