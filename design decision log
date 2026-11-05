@@ -72,7 +72,7 @@ closes the file on the normal path and when writing raises; an error during
 close also propagates.
 
 There is an important limitation: clinic operations can update appointment
-state before writing their success log. If that log write or close fails, the
+state before writing their success log. If that log writes or close fails, the
 caller can receive an exception even though the state change already happened.
 Also, a failure writing the final `[log] closed` line in the logger's
 `finally` block can replace an exception that was already being handled.
